@@ -1,9 +1,10 @@
 import { useState,useEffect } from 'react'
 import './App.css'
-import index from './components'
+import {Header,Footer} from './components/index'
 import { useDispatch } from 'react-redux'
 import authservice from './appwrite_util/auth'
 import { login,logout } from './store/authSlice'
+import { Routes,Route } from 'react-router'
 
 function App() {
   const [Loading, setLoading] = useState(true)
@@ -25,10 +26,13 @@ function App() {
 
   return !Loading? (
    <>
+   
    <div>
-     <index.header/>
-     <h3 className="text-bg-primary">hello world</h3>
-     <index.footer/>
+     <Header/>
+     <Routes>
+      <Route path="/" element={<p>doing</p>} />
+    </Routes>
+     <Footer/>
     </div>
    </>
   ):(
